@@ -64,13 +64,13 @@ export function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 flex flex-col space-y-3">
-            <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
+            <button onClick={() => scrollToSection('hero')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
               Home
             </button>
             <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
               About
             </button>
-            <button onClick={() => scrollToSection('')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
+            <button onClick={() => scrollToSection('focus-areas')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
               Focus Areas
             </button>
             <button onClick={() => scrollToSection('objectives')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">

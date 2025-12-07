@@ -1,19 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { Button } from './ui/button';
+import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
-    }
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
@@ -34,22 +26,24 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-          <button onClick={() => scrollToSection('hero')} className="text-gray-700 hover:text-orange-600 transition-colors">
+          <Link href="/hero" className="text-gray-700 hover:text-orange-600 transition-colors">
               Home
-            </button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-orange-600 transition-colors">
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-orange-600 transition-colors">
               About
-            </button>
-            <button onClick={() => scrollToSection('focus-areas')} className="text-gray-700 hover:text-orange-600 transition-colors">
+            </Link>
+            <Link href="/focusareas" className="text-gray-700 hover:text-orange-600 transition-colors">
               Focus Areas
-            </button>
-            <button onClick={() => scrollToSection('objectives')} className="text-gray-700 hover:text-orange-600 transition-colors">
+            </Link>
+            <Link href="/objectives" className="text-gray-700 hover:text-orange-600 transition-colors">
               Objectives
-            </button>
-            <button onClick={() => scrollToSection('programs')} className="text-gray-700 hover:text-orange-600 transition-colors">
+            </Link>
+            <Link href="/programs" className="text-gray-700 hover:text-orange-600 transition-colors">
               Programs
-            </button>
-            <Button onClick={() => scrollToSection('contact')} className="bg-orange-500 hover:bg-orange-600">Get Involved</Button>
+            </Link>
+            <Link href="/calltoaction" className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors">
+              Get Involved
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -63,23 +57,25 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 flex flex-col space-y-3">
-            <button onClick={() => scrollToSection('hero')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
+          <nav className="md:hidden mt-4 pb-4 flex justify-center items-center flex-col space-y-3">
+            <Link href="/hero" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               Home
-            </button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               About
-            </button>
-            <button onClick={() => scrollToSection('focus-areas')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
+            </Link>
+            <Link href="/focusareas" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               Focus Areas
-            </button>
-            <button onClick={() => scrollToSection('objectives')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
+            </Link>
+            <Link href="/objectives" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               Objectives
-            </button>
-            <button onClick={() => scrollToSection('programs')} className="text-gray-700 hover:text-orange-600 transition-colors text-left">
+            </Link>
+            <Link href="/programs" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               Programs
-            </button>
-            <Button onClick={() => scrollToSection('contact')} className="w-full bg-orange-500 hover:bg-orange-600">Get Involved</Button>
+            </Link>
+            <Link href="/calltoaction" className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors text-center" onClick={() => setMobileMenuOpen(false)}>
+              Get Involved
+            </Link>
           </nav>
         )}
       </div>

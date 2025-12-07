@@ -1,10 +1,11 @@
 'use client';
 
-import { Button } from './ui/button';
+import { Button } from '../components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { Header } from '../components/Header';
 
-export function Hero() {
+export default function Hero() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -13,7 +14,9 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <>
+      <Header />
+      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
@@ -73,5 +76,6 @@ export function Hero() {
         </div>
       </div>
     </section>
+    </>
   );
 }

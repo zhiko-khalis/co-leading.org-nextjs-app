@@ -12,12 +12,12 @@ export default function App() {
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <About />
-      <FocusAreas />
-      <Objectives />
-      <Programs />
-      <CallToAction />
-      <Footer />
+      {/* <About /> */}
+      {/* <FocusAreas /> */}
+      {/* <Objectives /> */}
+      {/* <Programs /> */}
+      {/* <CallToAction /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

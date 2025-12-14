@@ -1,7 +1,10 @@
+'use client';
+
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Briefcase, Lightbulb, Users, BookOpen } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { motion } from 'framer-motion';
 
 export function Programs() {
   const programs = [
@@ -31,18 +34,78 @@ export function Programs() {
     }
   ];
 
+  const headerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 1.1, y: 40 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, x: -40 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
   return (
     <section id="programs" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={headerVariants}
+          >
             <h2 className="mb-4 text-red-600 font-bold">Our Programs & Initiatives</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Diverse initiatives designed to empower individuals and create lasting community impact.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="mb-16">
+          <motion.div
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={imageVariants}
+          >
             <div className="relative rounded-2xl overflow-hidden h-96 mb-8">
               <ImageWithFallback
                 src="/lead-photo.jpg"
@@ -58,15 +121,22 @@ export function Programs() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div
+            className="grid md:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
             {programs.map((program, index) => {
               const Icon = program.icon;
               const bgColors = ['bg-orange-100', 'bg-green-100', 'bg-blue-100', 'bg-red-100'];
               const iconColors = ['text-orange-600', 'text-green-600', 'text-blue-600', 'text-red-600'];
               return (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+                <motion.div key={index} variants={cardVariants}>
+                  <Card className="p-6 hover:shadow-lg transition-shadow">
                   <div className="flex items-start mb-4">
                     <div className={`w-12 h-12 ${bgColors[index]} rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>
                       <Icon className={`w-6 h-6 ${iconColors[index]}`} />
@@ -82,9 +152,10 @@ export function Programs() {
                   </div>
                   <p className="text-gray-600">{program.description}</p>
                 </Card>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -41,7 +41,7 @@ export function Hero() {
             Building Leaders for a Sustainable Future
           </h1>
           
-          <p className="text-[18px] mb-8 text-gray-200 max-w-3xl mx-auto">
+          <p className="text-[14px] md:text-[18px] mb-8 text-gray-200 max-w-3xl mx-auto">
             Empowering women, youth, and children through leadership development, entrepreneurship, 
             and collaboration to create a more inclusive, innovative, and sustainable society.
           </p>

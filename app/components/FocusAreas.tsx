@@ -1,6 +1,9 @@
+'use client';
+
 import { Card } from './ui/card';
 import { Leaf, Heart, Users, Laptop } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { motion } from 'framer-motion';
 
 export function FocusAreas() {
   const areas = [
@@ -41,23 +44,72 @@ export function FocusAreas() {
     purple: 'bg-orange-500'
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 80, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
   return (
     <section id="focus-areas" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={headerVariants}
+          >
             <h2 className="mb-4 text-green-600 font-bold">Our Leadership Focus Areas</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our approach to leadership is multi-dimensional, addressing key areas 
               essential for holistic community development.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div
+            className="grid md:grid-cols-2 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
             {areas.map((area, index) => {
               const Icon = area.icon;
               return (
-                <Card key={index} className="overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <motion.div key={index} variants={cardVariants}>
+                  <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300">
                   <div className="relative h-48 overflow-hidden">
                     <ImageWithFallback
                       src={area.image}
@@ -81,9 +133,10 @@ export function FocusAreas() {
                     <p className="text-gray-600">{area.description}</p>
                   </div>
                 </Card>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

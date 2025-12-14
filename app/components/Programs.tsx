@@ -41,7 +41,7 @@ export function Programs() {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
       },
     },
   };
@@ -54,7 +54,7 @@ export function Programs() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
       },
     },
   };
@@ -77,7 +77,7 @@ export function Programs() {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
       },
     },
   };
@@ -138,7 +138,7 @@ export function Programs() {
                 <motion.div key={index} variants={cardVariants}>
                   <Card className="p-6 hover:shadow-lg transition-shadow">
                   <div className="flex items-start mb-4">
-                    <div className={`w-12 h-12 ${bgColors[index]} rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>
+                    <div className={`w-12 h-12 ${bgColors[index]} rounded-lg flex items-center justify-center mr-4 shrink-0`}>
                       <Icon className={`w-6 h-6 ${iconColors[index]}`} />
                     </div>
                     <div className="flex-1">

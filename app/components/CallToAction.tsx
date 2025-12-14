@@ -14,7 +14,7 @@ export function CallToAction() {
       scale: 1,
       transition: {
         duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
       },
     },
   };
@@ -38,7 +38,7 @@ export function CallToAction() {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
       },
     },
   };
@@ -51,7 +51,7 @@ export function CallToAction() {
       transition: {
         duration: 0.7,
         delay: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
       },
     },
   };
@@ -120,8 +120,8 @@ export function CallToAction() {
             variants={ctaVariants}
           >
             <p className="mb-6 text-orange-100">
-              Whether you're interested in our programs, want to volunteer, or explore partnership opportunities, 
-              we'd love to hear from you.
+              Whether you&apos;re interested in our programs, want to volunteer, or explore partnership opportunities, 
+              we&apos;d love to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-indigo-600  hover:bg-gray-100">

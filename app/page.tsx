@@ -1,9 +1,11 @@
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { About } from './components/About';
+// import { About } from './components/About';
 import { FocusAreas } from './components/FocusAreas';
 import { Objectives } from './components/Objectives';
 import { Programs } from './components/Programs';
+import { LatestNews } from './components/LatestNews';
+import { LatestProjects } from './components/LatestProjects';
 import { CallToAction } from './components/CallToAction';
 import { Footer } from './components/Footer';
 
@@ -12,12 +14,14 @@ export default function App() {
     <div className="min-h-screen">
       <Header />
       <Hero />
+      <LatestNews />
       {/* <About /> */}
-      {/* <FocusAreas /> */}
+      <FocusAreas /> 
+      <LatestProjects />
       {/* <Objectives /> */}
-      {/* <Programs /> */}
-      {/* <CallToAction /> */}
-      {/* <Footer /> */}
+      <Programs />
+      <CallToAction />
+      <Footer />
     </div>
   );
 }

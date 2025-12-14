@@ -2,6 +2,7 @@
 
 import { Card } from '../components/ui/card';
 import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import { Target, Eye, Heart } from 'lucide-react';
 
 export default function About() {
@@ -12,7 +13,7 @@ export default function About() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="mb-4 text-blue-600 font-bold">Purpose of Co-Lead Organization</h2>
+            <h2 className="mb-4 text-blue-600 font-bold text-3xl">Purpose of Co-Lead Organization</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               An independent, non-profit, and civil society organization committed to developing 
               leadership skills, fostering entrepreneurship, and promoting collaboration.
@@ -74,6 +75,7 @@ export default function About() {
         </div>
       </div>
     </section>
+    <Footer />
     </>
   );
 }

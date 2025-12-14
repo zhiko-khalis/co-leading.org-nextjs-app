@@ -26,14 +26,20 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/hero" className="text-gray-700 hover:text-orange-600 transition-colors">
+          <Link href="/" className="text-gray-700 hover:text-orange-600 transition-colors">
               Home
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-orange-600 transition-colors">
               About
             </Link>
+            <Link href="/news" className="text-gray-700 hover:text-orange-600 transition-colors">
+              News
+            </Link>
             <Link href="/focusareas" className="text-gray-700 hover:text-orange-600 transition-colors">
               Focus Areas
+            </Link>
+            <Link href="/projects" className="text-gray-700 hover:text-orange-600 transition-colors">
+              Projects
             </Link>
             <Link href="/objectives" className="text-gray-700 hover:text-orange-600 transition-colors">
               Objectives
@@ -41,6 +47,7 @@ export function Header() {
             <Link href="/programs" className="text-gray-700 hover:text-orange-600 transition-colors">
               Programs
             </Link>
+           
             <Link href="/calltoaction" className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors">
               Get Involved
             </Link>
@@ -58,14 +65,20 @@ export function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 flex justify-center items-center flex-col space-y-3">
-            <Link href="/hero" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               Home
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               About
             </Link>
+            <Link href="/news" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
+              News
+            </Link>
             <Link href="/focusareas" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               Focus Areas
+            </Link>
+            <Link href="/projects" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
+              Projects
             </Link>
             <Link href="/objectives" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               Objectives
@@ -73,6 +86,7 @@ export function Header() {
             <Link href="/programs" className="text-gray-700 hover:text-orange-600 transition-colors text-left" onClick={() => setMobileMenuOpen(false)}>
               Programs
             </Link>
+          
             <Link href="/calltoaction" className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors text-center" onClick={() => setMobileMenuOpen(false)}>
               Get Involved
             </Link>

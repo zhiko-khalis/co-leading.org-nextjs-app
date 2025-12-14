@@ -3,24 +3,25 @@
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useRouter } from 'next/navigation';
 
 export function Hero() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const router = useRouter();
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1705234384669-c6d31c61b789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwbGVhZGVycyUyMGNvbGxhYm9yYXRpb258ZW58MXx8fHwxNzYyNjExMDgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-          alt="Diverse leaders collaborating"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
+        >
+          <source src="/lead-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         {/* <div className="absolute inset-0 bg-gradient-to-r from-orange-900/90 to-orange-700/85"></div> */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-orange-700/85"></div>
       </div>
@@ -45,24 +46,24 @@ export function Hero() {
             and collaboration to create a more inclusive, innovative, and sustainable society.
           </p>
           
-          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
               className="bg-white text-blue-600 hover:bg-gray-100"
-              onClick={() => scrollToSection('about')}
+              onClick={() => router.push('/about')}
             >
               Learn More
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
+            {/* <Button 
               size="lg" 
               variant="outline"
               className="border-white text-orange-600 hover:bg-white/10"
               onClick={() => scrollToSection('contact')}
             >
               Get Involved
-            </Button>
-          </div> */}
+            </Button> */}
+          </div>
         </div>
       </div>
 

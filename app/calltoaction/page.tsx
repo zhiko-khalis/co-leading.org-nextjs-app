@@ -3,6 +3,7 @@
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function CallToAction() {
@@ -13,7 +14,7 @@ export default function CallToAction() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="mb-4 font-bold">Join Our Mission</h2>
+            <h2 className="mb-4 font-bold text-3xl">Join Our Mission</h2>
             <p className="text-xl text-orange-100">
               Together, we can build a world where every individual has equal access to opportunities 
               and resources, enabling them to contribute meaningfully to society.
@@ -63,6 +64,7 @@ export default function CallToAction() {
         </div>
       </div>
     </section>
+    <Footer />
     </>
   );
 }

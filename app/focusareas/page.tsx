@@ -2,6 +2,7 @@
 
 import { Card } from '../components/ui/card';
 import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import { Leaf, Heart, Users, Laptop } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
@@ -17,7 +18,7 @@ export default function FocusAreas() {
     {
       title: 'Economic Leadership',
       icon: Heart,
-      description: 'Strengthening community-based health initiatives and empowering youth and women to take leadership roles in promoting public health and wellbeing.',
+      description: 'Strengthening community-based economic initiatives and empowering youth and women to take leadership roles in promoting public economic and wellbeing.',
       color: 'red',
       image: 'https://images.unsplash.com/photo-1591197172062-c718f82aba20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBoZWFsdGh8ZW58MXx8fHwxNzYyNjExMDg0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
@@ -51,7 +52,7 @@ export default function FocusAreas() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="mb-4 text-green-600 font-bold">Our Leadership Focus Areas</h2>
+            <h2 className="mb-4 text-green-600 font-bold text-3xl">Our Leadership Focus Areas</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our approach to leadership is multi-dimensional, addressing key areas 
               essential for holistic community development.
@@ -92,6 +93,7 @@ export default function FocusAreas() {
         </div>
       </div>
     </section>
+    <Footer />
     </>
   );
 }

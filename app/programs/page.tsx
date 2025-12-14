@@ -3,6 +3,7 @@
 import { Card } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import { Briefcase, Lightbulb, Users, BookOpen } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
@@ -41,7 +42,7 @@ export default function Programs() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="mb-4 text-red-600 font-bold">Our Programs & Initiatives</h2>
+            <h2 className="mb-4 text-red-600 font-bold text-3xl">Our Programs & Initiatives</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Diverse initiatives designed to empower individuals and create lasting community impact.
             </p>
@@ -50,7 +51,7 @@ export default function Programs() {
           <div className="mb-16">
             <div className="relative rounded-2xl overflow-hidden h-96 mb-8">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1545886082-e66c6b9e011a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3V0aCUyMGVtcG93ZXJtZW50JTIwd29ya3Nob3B8ZW58MXx8fHwxNzYyNjExMDgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="/lead-photo.jpg"
                 alt="Youth empowerment workshop"
                 className="w-full h-full object-cover"
               />
@@ -93,6 +94,7 @@ export default function Programs() {
         </div>
       </div>
     </section>
+    <Footer />
     </>
   );
 }

@@ -1,8 +1,8 @@
 'use client';
 
-import { Card } from '../components/ui/card';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import { Card } from '../../components/ui/card';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 import { GraduationCap, Network, Users2, TrendingUp, Scale } from 'lucide-react';
 
 export default function Objectives() {
@@ -61,7 +61,7 @@ export default function Objectives() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="mb-4 text-orange-600 font-bold text-3xl">Our Objectives</h2>
+            <h2 className="mb-4 text-orange-600 font-bold">Our Objectives</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Strategic goals that guide our work and impact across communities.
             </p>

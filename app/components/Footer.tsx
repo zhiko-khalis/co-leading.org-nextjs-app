@@ -1,5 +1,15 @@
+'use client';
+
+import { useTranslations } from '../hooks/useTranslations';
+import { useLocale } from 'next-intl';
+import Link from 'next/link';
 
 export function Footer() {
+  const t = useTranslations('common');
+  const tFooter = useTranslations('footer');
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  
   return (
     <footer className="bg-gray-900 text-gray-300 py-12">
       <div className="container mx-auto px-4">
@@ -17,39 +27,38 @@ export function Footer() {
                 <p className="text-sm text-gray-400">co-Leading.org</p>
               </div>
               <p className="text-sm text-gray-400 mb-4">
-                An independent, non-profit, and civil society organization committed to developing 
-                leadership skills, fostering entrepreneurship, and promoting collaboration.
+                {tFooter('description')}
               </p>
             </div>
 
             <div>
-              <h4 className="text-white mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#about" className="hover:text-orange-400 transition-colors">About Us</a></li>
-                <li><a href="#focus-areas" className="hover:text-orange-400 transition-colors">Focus Areas</a></li>
-                <li><a href="#objectives" className="hover:text-orange-400 transition-colors">Objectives</a></li>
-                <li><a href="#programs" className="hover:text-orange-400 transition-colors">Programs</a></li>
+              <h4 className="text-white mb-4">{t('quickLinks')}</h4>
+              <ul className={`space-y-2 text-sm ${isRTL ? 'text-right' : 'text-left'}`}>
+                <li><Link href={`/${locale}/about`} className="hover:text-orange-400 transition-colors">{t('aboutUs')}</Link></li>
+                <li><Link href={`/${locale}/focusareas`} className="hover:text-orange-400 transition-colors">{t('focusAreas')}</Link></li>
+                <li><Link href={`/${locale}/objectives`} className="hover:text-orange-400 transition-colors">{t('objectives')}</Link></li>
+                <li><Link href={`/${locale}/programs`} className="hover:text-orange-400 transition-colors">{t('programs')}</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-white mb-4">Get Involved</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#contact" className="hover:text-orange-400 transition-colors">Contact Us</a></li>
-                <li><a href="#contact" className="hover:text-orange-400 transition-colors">Volunteer</a></li>
-                <li><a href="#contact" className="hover:text-orange-400 transition-colors">Partner With Us</a></li>
-                <li><a href="#contact" className="hover:text-orange-400 transition-colors">Donate</a></li>
+              <h4 className="text-white mb-4">{t('getInvolved')}</h4>
+              <ul className={`space-y-2 text-sm ${isRTL ? 'text-right' : 'text-left'}`}>
+                <li><Link href={`/${locale}/calltoaction`} className="hover:text-orange-400 transition-colors">{t('contactUs')}</Link></li>
+                <li><Link href={`/${locale}/calltoaction`} className="hover:text-orange-400 transition-colors">{t('volunteer')}</Link></li>
+                <li><Link href={`/${locale}/calltoaction`} className="hover:text-orange-400 transition-colors">{t('partnerWithUs')}</Link></li>
+                <li><Link href={`/${locale}/calltoaction`} className="hover:text-orange-400 transition-colors">{t('donate')}</Link></li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className={`border-t border-gray-800 pt-8 flex flex-col md:flex-row ${isRTL ? 'flex-row-reverse' : ''} justify-between items-center`}>
             <p className="text-sm text-gray-400 mb-4 md:mb-0">
-              © 2025 Co-Lead Organization. All rights reserved.
+              {tFooter('copyright')}
             </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-orange-400 transition-colors">Terms of Service</a>
+            <div className={`flex ${isRTL ? 'space-x-reverse space-x-6' : 'space-x-6'} text-sm`}>
+              <a href="#" className="hover:text-orange-400 transition-colors">{t('privacyPolicy')}</a>
+              <a href="#" className="hover:text-orange-400 transition-colors">{t('termsOfService')}</a>
             </div>
           </div>
         </div>

@@ -4,8 +4,14 @@ import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from '../hooks/useTranslations';
+import { useLocale } from 'next-intl';
 
 export function CallToAction() {
+  const t = useTranslations('callToAction');
+  const tCommon = useTranslations('common');
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
   const headerVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
@@ -67,10 +73,9 @@ export function CallToAction() {
             viewport={{ once: true, amount: 0.3 }}
             variants={headerVariants}
           >
-            <h2 className="mb-4 font-bold">Join Our Mission</h2>
+            <h2 className="mb-4 font-bold">{t('title')}</h2>
             <p className="text-xl text-orange-100">
-              Together, we can build a world where every individual has equal access to opportunities 
-              and resources, enabling them to contribute meaningfully to society.
+              {t('description')}
             </p>
           </motion.div>
 
@@ -86,7 +91,7 @@ export function CallToAction() {
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-6 h-6 text-white" />
               </div>
-              <h4 className="mb-2 text-white">Email Us</h4>
+              <h4 className="mb-2 text-white">{tCommon('emailUs')}</h4>
               <p className="text-orange-100 text-sm">public@co-leading.org</p>
             </Card>
             </motion.div>
@@ -96,7 +101,7 @@ export function CallToAction() {
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="mb-2 text-white">Call Us</h4>
+                <h4 className="mb-2 text-white">{tCommon('callUs')}</h4>
                 <p className="text-orange-100 text-sm">+[Phone Number]</p>
               </Card>
             </motion.div>
@@ -106,7 +111,7 @@ export function CallToAction() {
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="mb-2 text-white">Visit Us</h4>
+                <h4 className="mb-2 text-white">{tCommon('visitUs')}</h4>
                 <p className="text-orange-100 text-sm">[Location]</p>
               </Card>
             </motion.div>
@@ -120,17 +125,16 @@ export function CallToAction() {
             variants={ctaVariants}
           >
             <p className="mb-6 text-orange-100">
-              Whether you&apos;re interested in our programs, want to volunteer, or explore partnership opportunities, 
-              we&apos;d love to hear from you.
+              {t('subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>
               <Button size="lg" className="bg-white text-indigo-600  hover:bg-gray-100">
-                Get Involved
+                {tCommon('getInvolved')}
               </Button>
               <Button size="lg" variant="outline" className="border-white text-orange-600 hover:bg-white/10">
-                Partner With Us
+                {tCommon('partnerWithUs')}
               </Button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

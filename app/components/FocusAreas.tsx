@@ -4,34 +4,37 @@ import { Card } from './ui/card';
 import { Leaf, Heart, Users, Laptop } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'framer-motion';
+import { useTranslations } from '../hooks/useTranslations';
 
 export function FocusAreas() {
+  const t = useTranslations('focusAreas');
+  
   const areas = [
     {
-      title: 'Environmental Leadership',
+      title: t('environmentalLeadership'),
       icon: Leaf,
-      description: 'Promoting awareness and action toward environmental protection, climate resilience, and sustainable resource management.',
+      description: t('environmentalLeadershipDescription'),
       color: 'green',
       image: 'https://images.unsplash.com/photo-1528122819723-9dca3a31295d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnZpcm9ubWVudGFsJTIwc3VzdGFpbmFiaWxpdHl8ZW58MXx8fHwxNzYyNTEyNTc5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      title: 'Economic Leadership',
+      title: t('economicLeadership'),
       icon: Heart,
-      description: 'Strengthening community-based economic initiatives and empowering youth and women to take leadership roles in promoting public economic and wellbeing.',
+      description: t('economicLeadershipDescription'),
       color: 'red',
       image: 'https://images.unsplash.com/photo-1591197172062-c718f82aba20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBoZWFsdGh8ZW58MXx8fHwxNzYyNjExMDg0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      title: 'Social and Women Leadership',
+      title: t('socialWomenLeadership'),
       icon: Users,
-      description: 'Encouraging inclusive participation, gender equality, and social cohesion by equipping leaders to advocate for justice, equity, and human rights.',
+      description: t('socialWomenLeadershipDescription'),
       color: 'blue',
       image: 'https://images.unsplash.com/photo-1759171907618-95130c76ae5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBqdXN0aWNlJTIwZXF1YWxpdHl8ZW58MXx8fHwxNzYyNjExMDg0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      title: 'Technology Leadership',
+      title: t('technologyLeadership'),
       icon: Laptop,
-      description: 'Advancing digital skills, innovation, and technology-driven solutions that improve education, governance, and entrepreneurship opportunities.',
+      description: t('technologyLeadershipDescription'),
       color: 'purple',
       image: 'https://images.unsplash.com/photo-1568952433726-3896e3881c65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwaW5ub3ZhdGlvbnxlbnwxfHx8fDE3NjI1NDM1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     }
@@ -91,10 +94,9 @@ export function FocusAreas() {
             viewport={{ once: true, amount: 0.3 }}
             variants={headerVariants}
           >
-            <h2 className="mb-4 text-green-600 font-bold">Our Leadership Focus Areas</h2>
+            <h2 className="mb-4 text-green-600 font-bold">{t('title')}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our approach to leadership is multi-dimensional, addressing key areas 
-              essential for holistic community development.
+              {t('description')}
             </p>
           </motion.div>
 

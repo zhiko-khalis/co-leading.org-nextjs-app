@@ -1,0 +1,203 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "news": "News",
+    "focusAreas": "Focus Areas",
+    "projects": "Projects",
+    "objectives": "Objectives",
+    "programs": "Programs",
+    "getInvolved": "Get Involved",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "volunteer": "Volunteer",
+    "partnerWithUs": "Partner With Us",
+    "donate": "Donate",
+    "quickLinks": "Quick Links",
+    "aboutUs": "About Us",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "allRightsReserved": "All rights reserved",
+    "emailUs": "Email Us",
+    "callUs": "Call Us",
+    "visitUs": "Visit Us",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "back": "Back to News"
+  },
+  "hero": {
+    "title": "Building Leaders for a Sustainable Future",
+    "description": "Empowering women, youth, and children through leadership development, entrepreneurship, and collaboration to create a more inclusive, innovative, and sustainable society."
+  },
+  "footer": {
+    "description": "An independent, non-profit, and civil society organization committed to developing leadership skills, fostering entrepreneurship, and promoting collaboration.",
+    "copyright": "© 2025 Co-Lead Organization. All rights reserved."
+  },
+  "callToAction": {
+    "title": "Join Our Mission",
+    "description": "Together, we can build a world where every individual has equal access to opportunities and resources, enabling them to contribute meaningfully to society.",
+    "subtitle": "Whether you're interested in our programs, want to volunteer, or explore partnership opportunities, we'd love to hear from you."
+  },
+  "about": {
+    "title": "About Co-Lead Organization",
+    "description": "An independent, non-profit, and civil society organization committed to developing leadership skills, fostering entrepreneurship, and promoting collaboration.",
+    "mission": "Mission",
+    "missionDescription": "Building bridges between leaders and organizations, raising knowledge and skills, developing current and future leaders, and encouraging innovation and positive change in society.",
+    "vision": "Vision",
+    "visionDescription": "Creating a society without discrimination based on gender, religion, and ethnicity that supports the public good and sustainable development.",
+    "coreValues": "Core Values",
+    "coreValuesDescription": "Empowerment, collaboration, innovation, inclusion, and sustainability guide everything we do to create lasting positive impact.",
+    "ourApproach": "Our Approach",
+    "approachDescription1": "This New Year is especially meaningful as it marks the beginning of our journey as a newly established Co-Lead Organization. Today, we celebrate not only the start of a new year, but also a new partnership built on shared vision, collaboration, and leadership. This moment represents unity, commitment, and the promise of working together toward meaningful impact. As we step forward, we do so with enthusiasm, mutual respect, and confidence in what we can achieve together. Here's to fresh beginnings, strong collaboration, and a successful year ahead. Wishing everyone a joyful, productive, and inspiring New Year! 🎊",
+    "newYearMessage": "This New Year is especially meaningful as it marks the beginning of our journey as a newly established Co-Lead Organization.Today, we celebrate not only the start of a new year, but also a new partnership built on shared vision, collaboration, and leadership. This moment represents unity, commitment, and the promise of working together toward meaningful impact.As we step forward, we do so with enthusiasm, mutual respect, and confidence in what we can achieve together. Here's to fresh beginnings, strong collaboration, and a successful year ahead. Wishing everyone a joyful, productive, and inspiring New Year! 🎊"
+  },
+  "focusAreas": {
+    "title": "Our Leadership Focus Areas",
+    "description": "Our approach to leadership is multi-dimensional, addressing key areas essential for holistic community development.",
+    "environmentalLeadership": "Environmental Leadership",
+    "environmentalLeadershipDescription": "Promoting awareness and action toward environmental protection, climate resilience, and sustainable resource management.",
+    "economicLeadership": "Economic Leadership",
+    "economicLeadershipDescription": "Strengthening community-based economic initiatives and empowering youth and women to take leadership roles in promoting public economic and wellbeing.",
+    "socialWomenLeadership": "Social and Women Leadership",
+    "socialWomenLeadershipDescription": "Encouraging inclusive participation, gender equality, and social cohesion by equipping leaders to advocate for justice, equity, and human rights.",
+    "technologyLeadership": "Technology Leadership",
+    "technologyLeadershipDescription": "Advancing digital skills, innovation, and technology-driven solutions that improve education, governance, and entrepreneurship opportunities."
+  },
+  "latestNews": {
+    "title": "Latest News & Updates",
+    "description": "Stay informed about our latest programs, events, and initiatives making a difference in our communities.",
+    "viewAllNews": "View All News",
+    "newsItems": {
+      "item1": {
+        "title": "A Beginning for Real Estate Seminar",
+        "description": "Today, Thursday 25/12/2025, Collide organized a seminar entitled A Beginning for Real Estate.",
+        "fullContent": "Today, Thursday 25/12/2025, Collide organized a seminar entitled A Beginning for Real Estate.\n\nAt the beginning of the seminar, the head of the organization, Ms Hawzhin, spoke about the introduction, goals and work of the organization.\n\nThen, the seminar was presented by the trainer and consultant in the field of real estate Mr. (Barzan Saber), to introduce young people to the field of real estate and working in the field of real estate.\n\nIn which the methods of working in the field of real estate, how to start working in real estate and the characteristics of real estate employees, and several other topics, were presented to the participants, and provided an open discussion and questions were presented by the participants.",
+        "category": "Events"
+      },
+      "item2": {
+        "title": "Training Seminar on How to Write a Professional CV",
+        "description": "We held a training seminar in collaboration with Qaladzeh Non-Governmental Institute of Science – Computer Department on how to write a professional CV for job applications.",
+        "fullContent": "We held a training seminar in collaboration with Qaladzeh Non-Governmental Institute of Science – Computer Department\n\non ✍️ How to Write a Professional CV for Job Applications\n\npresented by Trainer Hawzhin 🌱\n\nDuring the seminar, participants learned about:\n\n✔️ The fundamentals of writing a successful CV\n\n✔️ Common mistakes in CV preparation\n\n✔️ How to present skills and experience in a professional way\n\n✔️ Building confidence to enter the job market\n\nTogether, we take one step closer to a better professional future",
+        "category": "Events"
+      },
+      "item3": {
+        "title": "Welcoming Project Managers from People's Organization for Development",
+        "description": "Co-Lead Organization welcomed the project managers of the People's Organization for Development and its members.",
+        "fullContent": "Co-Lead Organization welcomed the project managers of the People's Organization for Development and its members. During the visit, the plans and projects of the People's Organization for Development in the field of peace and mine clearance were presented at the Raperin administration, and discussions were held on joint and collaborative work in the future.",
+        "category": "Partnerships"
+      },
+      "item4": {
+        "title": "Partnership with Local Organizations Strengthens Community Impact",
+        "description": "We are proud to announce new partnerships that will expand our reach and enhance our ability to serve more communities across the region.",
+        "fullContent": "We are proud to announce new partnerships that will expand our reach and enhance our ability to serve more communities across the region. These collaborations will bring together resources and expertise to create greater positive change.\n\nOur new partners include local businesses, international organizations, educational institutions, and government agencies. These partnerships will enable us to scale our programs, reach more beneficiaries, and leverage diverse expertise and resources.\n\nTogether, we will work on joint initiatives focusing on leadership development, entrepreneurship support, environmental sustainability, and community empowerment. We believe that collaboration is key to creating lasting impact, and we are excited about the opportunities these partnerships will bring to our communities. These strategic alliances will help us achieve our mission of building leaders for a sustainable future.",
+        "category": "Partnerships"
+      }
+    },
+    "categories": {
+      "programs": "Programs",
+      "events": "Events",
+      "partnerships": "Partnerships",
+      "news": "News"
+    }
+  },
+  "latestProjects": {
+    "title": "Latest Projects",
+    "description": "Discover our impactful projects that are transforming communities and creating lasting positive change.",
+    "viewAllProjects": "View All Projects",
+    "status": {
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "upcoming": "Upcoming",
+      "onHold": "On Hold"
+    },
+    "projects": {
+      "project1": {
+        "title": "Community Health Initiative",
+        "description": "A comprehensive health program providing medical services and health education to underserved communities, reaching over 5,000 beneficiaries."
+      },
+      "project2": {
+        "title": "Digital Skills Training Program",
+        "description": "Empowering youth and women with essential digital literacy skills, coding workshops, and technology entrepreneurship training."
+      },
+      "project3": {
+        "title": "Sustainable Agriculture Project",
+        "description": "Supporting local farmers with modern farming techniques, sustainable practices, and market access to improve food security and livelihoods."
+      }
+    }
+  },
+  "objectives": {
+    "title": "Our Objectives",
+    "description": "Strategic goals that guide our work and impact across communities.",
+    "objectives": {
+      "leadershipDevelopment": {
+        "title": "Leadership Development",
+        "points": [
+          "Mentoring for emerging leaders and youth",
+          "Develop self-awareness and team leadership",
+          "Foster innovation and change skills"
+        ]
+      },
+      "networkingCommunication": {
+        "title": "Networking & Communication",
+        "points": [
+          "Create diverse networks across sectors",
+          "Connect public, private, and civil society",
+          "Strengthen government-organization relationships"
+        ]
+      },
+      "communityInvolvement": {
+        "title": "Community Involvement",
+        "points": [
+          "Encourage women and youth participation",
+          "Facilitate civic engagement and governance",
+          "Promote cooperation on public issues"
+        ]
+      },
+      "communityEconomicDevelopment": {
+        "title": "Community & Economic Development",
+        "points": [
+          "Joint projects for environment and entrepreneurship",
+          "Support research and innovation",
+          "Strengthen governance and public services"
+        ]
+      },
+      "cultureHumanRights": {
+        "title": "Culture & Human Rights",
+        "points": [
+          "Emphasize diversity and equality",
+          "Support human rights and democratic principles",
+          "Ongoing training for members and staff"
+        ]
+      }
+    }
+  },
+  "programs": {
+    "title": "Our Programs & Initiatives",
+    "description": "Diverse initiatives designed to empower individuals and create lasting community impact.",
+    "empoweringNextGeneration": "Empowering the Next Generation",
+    "empoweringNextGenerationDescription": "Our entrepreneurship and innovation programs inspire creativity and support women and youth-led enterprises, fostering inclusive economic growth and social empowerment.",
+    "programs": {
+      "leadershipWorkshops": {
+        "title": "Leadership Development Workshops",
+        "description": "Interactive workshops designed to build essential leadership skills, self-awareness, and team collaboration capabilities.",
+        "tags": ["Training", "Skills", "Mentorship"]
+      },
+      "entrepreneurshipTraining": {
+        "title": "Entrepreneurship Training",
+        "description": "Comprehensive programs supporting start-ups and promoting sustainable business practices with access to mentorship and funding opportunities.",
+        "tags": ["Business", "Innovation", "Support"]
+      },
+      "innovationLabs": {
+        "title": "Innovation Labs",
+        "description": "Creative spaces where participants develop technology-driven solutions and tackle local and regional challenges through innovation.",
+        "tags": ["Solutions", "Research"]
+      },
+      "mentorshipPrograms": {
+        "title": "Mentorship Programs",
+        "description": "Connecting emerging leaders with experienced professionals for guidance, knowledge sharing, and career development.",
+        "tags": ["Mentoring", "Growth", "Network"]
+      }
+    }
+  }
+}
+

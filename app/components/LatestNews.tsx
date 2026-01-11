@@ -7,54 +7,60 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useTranslations } from '../hooks/useTranslations';
+import { useLocale } from 'next-intl';
 
 export function LatestNews() {
+  const t = useTranslations('latestNews');
+  const tCommon = useTranslations('common');
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  
   const newsItems = [
     {
       id: 1,
-      title: 'New Leadership Program Launched for Women Entrepreneurs',
-      description: 'We are excited to announce the launch of our comprehensive leadership development program designed specifically for women entrepreneurs looking to scale their businesses.',
-      date: '2024-01-15',
-      category: 'Programs',
-      image: '/lead-photo.jpg',
-      readMore: '#'
+      title: t('newsItems.item1.title'),
+      description: t('newsItems.item1.description'),
+      date: '2025-12-25',
+      category: t('newsItems.item1.category'),
+      image: '/n1/n1.jpg',
     },
     {
       id: 2,
-      title: 'Youth Innovation Challenge Winners Announced',
-      description: 'Congratulations to all participants in our annual Youth Innovation Challenge. This year\'s winners showcased exceptional creativity in addressing community challenges.',
-      date: '2024-01-10',
-      category: 'Events',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3V0aCUyMGNvbGxhYm9yYXRpb258ZW58MXx8fHwxNzYyNjExMDgzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      readMore: '#'
+      title: t('newsItems.item2.title'),
+      description: t('newsItems.item2.description'),
+      date: '2024-01-15',
+      category: t('newsItems.item2.category'),
+      image: '/nn1/nn3.jpg',
     },
     {
       id: 3,
-      title: 'Partnership with Local Organizations Strengthens Community Impact',
-      description: 'We are proud to announce new partnerships that will expand our reach and enhance our ability to serve more communities across the region.',
-      date: '2024-01-05',
-      category: 'Partnerships',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXJ0bmVyc2hpcCUyMGNvbGxhYm9yYXRpb258ZW58MXx8fHwxNzYyNjExMDgzfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      readMore: '#'
+      title: t('newsItems.item3.title'),
+      description: t('newsItems.item3.description'),
+      date: '2024-01-10',
+      category: t('newsItems.item3.category'),
+      image: '/nnn1/nnn1.jpg',
     }
     
   ];
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
+    const date = new Date(dateString + 'T00:00:00'); // Ensure consistent timezone handling
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      calendar: 'gregory', // Force Gregorian calendar to avoid Hijri calendar differences
+    };
+    return date.toLocaleDateString(locale === 'ar' ? 'ar-SA' : 'en-US', options);
   };
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
-      'Programs': 'bg-blue-100 text-blue-600',
-      'Events': 'bg-orange-100 text-orange-600',
-      'Partnerships': 'bg-green-100 text-green-600',
-      'News': 'bg-red-100 text-red-600'
+      [t('categories.programs')]: 'bg-blue-100 text-blue-600',
+      [t('categories.events')]: 'bg-orange-100 text-orange-600',
+      [t('categories.partnerships')]: 'bg-green-100 text-green-600',
+      [t('categories.news')]: 'bg-red-100 text-red-600'
     };
     return colors[category] || 'bg-gray-100 text-gray-600';
   };
@@ -106,9 +112,9 @@ export function LatestNews() {
             viewport={{ once: true, amount: 0.3 }}
             variants={headerVariants}
           >
-            <h2 className="mb-4 text-red-600 font-bold">Latest News & Updates</h2>
+            <h2 className="mb-4 text-red-600 font-bold">{t('title')}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Stay informed about our latest programs, events, and initiatives making a difference in our communities.
+              {t('description')}
             </p>
           </motion.div>
 
@@ -136,27 +142,28 @@ export function LatestNews() {
                 </div>
                 
                 <CardHeader>
-                  <div className="flex items-center text-sm text-gray-500 mb-2">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    {formatDate(item.date)}
+                  <div className={`flex items-center justify-center text-center text-sm text-gray-500 mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <Calendar className={`w-4 h-4 text-center ${isRTL ? 'ml-2' : 'mr-2'}`} />
+                    <span suppressHydrationWarning>{formatDate(item.date)}</span>
                   </div>
-                  <CardTitle className="text-lg mb-2 line-clamp-2">
+                  <CardTitle className="text-lg mb-2 line-clamp-2 text-center">
                     {item.title}
                   </CardTitle>
                 </CardHeader>
                 
                 <CardContent className="flex-1 flex flex-col">
-                  <p className="text-gray-600 mb-4 line-clamp-3 flex-1">
+                  <p className="text-gray-600 mb-4 line-clamp-3 flex-1 text-center">
                     {item.description}
                   </p>
-                  <Button 
-                    variant="ghost" 
-                    className="w-full justify-between group"
-                    onClick={() => window.location.href = item.readMore}
-                  >
-                    Read More
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <Link href={`/${locale}/news/${item.id}`} className="w-full">
+                    <Button 
+                      variant="ghost" 
+                      className={`w-full justify-center items-center group bg-gray-100 hover:bg-gray-200 ${isRTL ? 'flex-row-reverse' : ''}`}
+                    >
+                      {tCommon('readMore')}
+                      {/* <ArrowRight className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${isRTL ? 'rotate-180 group-hover:-translate-x-1' : ''}`} /> */}
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
               </motion.div>
@@ -170,16 +177,16 @@ export function LatestNews() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <Link href="/news">
+            {/* <Link href="" locale={locale}> */}
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-2"
+                className={`border-2 ${isRTL ? 'flex-row-reverse' : ''}`}
               >
-                View All News
-                <ArrowRight className="ml-2 h-5 w-5" />
+                {t('viewAllNews')}
+                <ArrowRight className={`h-5 w-5 ${isRTL ? 'mr-2 rotate-180' : 'ml-2'}`} />
               </Button>
-            </Link>
+            {/* </Link> */}
           </motion.div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 'use client';
 
-import { Card } from '../components/ui/card';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import { Card } from '../../components/ui/card';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 import { Target, Eye, Heart } from 'lucide-react';
 
 export default function About() {

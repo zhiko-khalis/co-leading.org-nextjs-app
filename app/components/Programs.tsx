@@ -5,32 +5,53 @@ import { Badge } from './ui/badge';
 import { Briefcase, Lightbulb, Users, BookOpen } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'framer-motion';
+import { useTranslations } from '../hooks/useTranslations';
+import { useLocale } from 'next-intl';
 
 export function Programs() {
+  const t = useTranslations('programs');
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  
   const programs = [
     {
-      title: 'Leadership Development Workshops',
-      description: 'Interactive workshops designed to build essential leadership skills, self-awareness, and team collaboration capabilities.',
+      title: t('programs.leadershipWorkshops.title'),
+      description: t('programs.leadershipWorkshops.description'),
       icon: BookOpen,
-      tags: ['Training', 'Skills', 'Mentorship']
+      tags: [
+        t('programs.leadershipWorkshops.tags.0'),
+        t('programs.leadershipWorkshops.tags.1'),
+        t('programs.leadershipWorkshops.tags.2')
+      ]
     },
     {
-      title: 'Entrepreneurship Training',
-      description: 'Comprehensive programs supporting start-ups and promoting sustainable business practices with access to mentorship and funding opportunities.',
+      title: t('programs.entrepreneurshipTraining.title'),
+      description: t('programs.entrepreneurshipTraining.description'),
       icon: Briefcase,
-      tags: ['Business', 'Innovation', 'Support']
+      tags: [
+        t('programs.entrepreneurshipTraining.tags.0'),
+        t('programs.entrepreneurshipTraining.tags.1'),
+        t('programs.entrepreneurshipTraining.tags.2')
+      ]
     },
     {
-      title: 'Innovation Labs',
-      description: 'Creative spaces where participants develop technology-driven solutions and tackle local and regional challenges through innovation.',
+      title: t('programs.innovationLabs.title'),
+      description: t('programs.innovationLabs.description'),
       icon: Lightbulb,
-      tags: ['Solutions', 'Research']
+      tags: [
+        t('programs.innovationLabs.tags.0'),
+        t('programs.innovationLabs.tags.1')
+      ]
     },
     {
-      title: 'Mentorship Programs',
-      description: 'Connecting emerging leaders with experienced professionals for guidance, knowledge sharing, and career development.',
+      title: t('programs.mentorshipPrograms.title'),
+      description: t('programs.mentorshipPrograms.description'),
       icon: Users,
-      tags: ['Mentoring', 'Growth', 'Network']
+      tags: [
+        t('programs.mentorshipPrograms.tags.0'),
+        t('programs.mentorshipPrograms.tags.1'),
+        t('programs.mentorshipPrograms.tags.2')
+      ]
     }
   ];
 
@@ -93,9 +114,9 @@ export function Programs() {
             viewport={{ once: true, amount: 0.3 }}
             variants={headerVariants}
           >
-            <h2 className="mb-4 text-red-600 font-bold">Our Programs & Initiatives</h2>
+            <h2 className="mb-4 text-red-600 font-bold">{t('title')}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Diverse initiatives designed to empower individuals and create lasting community impact.
+              {t('description')}
             </p>
           </motion.div>
 
@@ -114,10 +135,9 @@ export function Programs() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <h3 className="mb-2">Empowering the Next Generation</h3>
+                <h3 className="mb-2">{t('empoweringNextGeneration')}</h3>
                 <p className="text-gray-200">
-                  Our entrepreneurship and innovation programs inspire creativity and support women 
-                  and youth-led enterprises, fostering inclusive economic growth and social empowerment.
+                  {t('empoweringNextGenerationDescription')}
                 </p>
               </div>
             </div>
@@ -137,13 +157,13 @@ export function Programs() {
               return (
                 <motion.div key={index} variants={cardVariants}>
                   <Card className="p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex items-start mb-4">
-                    <div className={`w-12 h-12 ${bgColors[index]} rounded-lg flex items-center justify-center mr-4 shrink-0`}>
+                  <div className={`flex items-start mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    <div className={`w-12 h-12 ${bgColors[index]} rounded-lg flex items-center justify-center shrink-0 ${isRTL ? 'ml-4' : 'mr-4'}`}>
                       <Icon className={`w-6 h-6 ${iconColors[index]}`} />
                     </div>
                     <div className="flex-1">
                       <h3 className="mb-2">{program.title}</h3>
-                      <div className="flex flex-wrap gap-2 mb-3">
+                      <div className={`flex flex-wrap gap-2 mb-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                         {program.tags.map((tag, idx) => (
                           <Badge key={idx} variant="secondary">{tag}</Badge>
                         ))}

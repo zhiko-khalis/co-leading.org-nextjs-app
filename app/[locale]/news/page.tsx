@@ -1,12 +1,12 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
+import { Badge } from '../../components/ui/badge';
 import { Calendar, ArrowRight, ArrowLeft } from 'lucide-react';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import { Button } from '../components/ui/button';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
+import { Button } from '../../components/ui/button';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 import Link from 'next/link';
 
 export default function NewsPage() {

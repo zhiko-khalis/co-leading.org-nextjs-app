@@ -1,52 +1,50 @@
+'use client';
+
 import { Card } from './ui/card';
 import { GraduationCap, Network, Users2, TrendingUp, Scale } from 'lucide-react';
+import { useTranslations } from '../hooks/useTranslations';
+import { useLocale } from 'next-intl';
 
 export function Objectives() {
+  const t = useTranslations('objectives');
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
+  
+  // Helper function to get nested translation
+  const getObjectivePoints = (key: string) => {
+    const points = [
+      t(`objectives.${key}.points.0`),
+      t(`objectives.${key}.points.1`),
+      t(`objectives.${key}.points.2`)
+    ];
+    return points;
+  };
+
   const objectives = [
     {
       icon: GraduationCap,
-      title: 'Leadership Development',
-      points: [
-        'Mentoring for emerging leaders and youth',
-        'Develop self-awareness and team leadership',
-        'Foster innovation and change skills'
-      ]
+      title: t('objectives.leadershipDevelopment.title'),
+      points: getObjectivePoints('leadershipDevelopment')
     },
     {
       icon: Network,
-      title: 'Networking & Communication',
-      points: [
-        'Create diverse networks across sectors',
-        'Connect public, private, and civil society',
-        'Strengthen government-organization relationships'
-      ]
+      title: t('objectives.networkingCommunication.title'),
+      points: getObjectivePoints('networkingCommunication')
     },
     {
       icon: Users2,
-      title: 'Community Involvement',
-      points: [
-        'Encourage women and youth participation',
-        'Facilitate civic engagement and governance',
-        'Promote cooperation on public issues'
-      ]
+      title: t('objectives.communityInvolvement.title'),
+      points: getObjectivePoints('communityInvolvement')
     },
     {
       icon: TrendingUp,
-      title: 'Community & Economic Development',
-      points: [
-        'Joint projects for environment and entrepreneurship',
-        'Support research and innovation',
-        'Strengthen governance and public services'
-      ]
+      title: t('objectives.communityEconomicDevelopment.title'),
+      points: getObjectivePoints('communityEconomicDevelopment')
     },
     {
       icon: Scale,
-      title: 'Culture & Human Rights',
-      points: [
-        'Emphasize diversity and equality',
-        'Support human rights and democratic principles',
-        'Ongoing training for members and staff'
-      ]
+      title: t('objectives.cultureHumanRights.title'),
+      points: getObjectivePoints('cultureHumanRights')
     }
   ];
 
@@ -55,9 +53,9 @@ export function Objectives() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="mb-4 text-orange-600 font-bold">Our Objectives</h2>
+            {/* <h2 className="mb-4 text-orange-600 font-bold">{t('title')}</h2> */}
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Strategic goals that guide our work and impact across communities.
+              {t('description')}
             </p>
           </div>
 
@@ -74,8 +72,8 @@ export function Objectives() {
                   <h3 className="mb-4">{objective.title}</h3>
                   <ul className="space-y-2">
                     {objective.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <span className={`inline-block w-1.5 h-1.5 ${dotColors[index]} rounded-full mt-2 mr-3 flex-shrink-0`}></span>
+                      <li key={idx} className={`flex items-start ${isRTL ? 'flex-row-reverse' : ''}`}>
+                        <span className={`inline-block w-1.5 h-1.5 ${dotColors[index]} rounded-full mt-2 flex-shrink-0 ${isRTL ? 'ml-3' : 'mr-3'}`}></span>
                         <span className="text-gray-600">{point}</span>
                       </li>
                     ))}

@@ -1,14 +1,13 @@
 'use client';
 
 import { useTranslations } from '../hooks/useTranslations';
-import { useLocale } from 'next-intl';
+import { useLanguage } from '../contexts/LanguageContext';
 import Link from 'next/link';
 
 export function Footer() {
   const t = useTranslations('common');
   const tFooter = useTranslations('footer');
-  const locale = useLocale();
-  const isRTL = locale === 'ar';
+  const { isRTL } = useLanguage();
   
   return (
     <footer className="bg-gray-900 text-gray-300 py-12">
@@ -34,20 +33,20 @@ export function Footer() {
             <div>
               <h4 className="text-white mb-4">{t('quickLinks')}</h4>
               <ul className={`space-y-2 text-sm ${isRTL ? 'text-right' : 'text-left'}`}>
-                <li><Link href={`/${locale}/about`} className="hover:text-orange-400 transition-colors">{t('aboutUs')}</Link></li>
-                <li><Link href={`/${locale}/focusareas`} className="hover:text-orange-400 transition-colors">{t('focusAreas')}</Link></li>
-                <li><Link href={`/${locale}/objectives`} className="hover:text-orange-400 transition-colors">{t('objectives')}</Link></li>
-                <li><Link href={`/${locale}/programs`} className="hover:text-orange-400 transition-colors">{t('programs')}</Link></li>
+                <li><Link href="/about" className="hover:text-orange-400 transition-colors">{t('aboutUs')}</Link></li>
+                <li><Link href="/#focus-areas" className="hover:text-orange-400 transition-colors">{t('focusAreas')}</Link></li>
+                <li><Link href="/objectives" className="hover:text-orange-400 transition-colors">{t('objectives')}</Link></li>
+                <li><Link href="/programs" className="hover:text-orange-400 transition-colors">{t('programs')}</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white mb-4">{t('getInvolved')}</h4>
               <ul className={`space-y-2 text-sm ${isRTL ? 'text-right' : 'text-left'}`}>
-                <li><Link href={`/${locale}/calltoaction`} className="hover:text-orange-400 transition-colors">{t('contactUs')}</Link></li>
-                <li><Link href={`/${locale}/calltoaction`} className="hover:text-orange-400 transition-colors">{t('volunteer')}</Link></li>
-                <li><Link href={`/${locale}/calltoaction`} className="hover:text-orange-400 transition-colors">{t('partnerWithUs')}</Link></li>
-                <li><Link href={`/${locale}/calltoaction`} className="hover:text-orange-400 transition-colors">{t('donate')}</Link></li>
+                <li><Link href="/calltoaction" className="hover:text-orange-400 transition-colors">{t('contactUs')}</Link></li>
+                <li><Link href="/calltoaction" className="hover:text-orange-400 transition-colors">{t('volunteer')}</Link></li>
+                <li><Link href="/calltoaction" className="hover:text-orange-400 transition-colors">{t('partnerWithUs')}</Link></li>
+                <li><Link href="/calltoaction" className="hover:text-orange-400 transition-colors">{t('donate')}</Link></li>
               </ul>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from '../hooks/useTranslations';
-import { useLocale } from 'next-intl';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface HeroProps {
   videoSrc?: string;
@@ -17,8 +17,7 @@ export function Hero({ videoSrc, imageSrc, imageAlt = 'Hero background' }: HeroP
   const router = useRouter();
   const t = useTranslations('hero');
   const tCommon = useTranslations('common');
-  const locale = useLocale();
-  const isRTL = locale === 'ar';
+  const { isRTL } = useLanguage();
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">

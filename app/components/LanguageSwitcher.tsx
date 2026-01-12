@@ -1,8 +1,6 @@
 'use client';
 
-import { useLocale } from 'next-intl';
-import { usePathname } from '@/i18n/routing';
-import { Link } from '@/i18n/routing';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Globe } from 'lucide-react';
 import { Button } from './ui/button';
 import {
@@ -13,13 +11,12 @@ import {
 } from './ui/dropdown-menu';
 
 export function LanguageSwitcher() {
-  const locale = useLocale();
-  const pathname = usePathname();
+  const { locale, setLocale } = useLanguage();
 
   const languages = [
-    { code: 'en', name: 'English', nativeName: 'English' },
-    { code: 'ar', name: 'Arabic', nativeName: 'العربية' },
-    { code: 'ku', name: 'Kurdish', nativeName: 'کوردی' },
+    { code: 'en' as const, name: 'English', nativeName: 'English' },
+    { code: 'ar' as const, name: 'Arabic', nativeName: 'العربية' },
+    { code: 'ku' as const, name: 'Kurdish', nativeName: 'کوردی' },
   ];
 
   return (
@@ -38,12 +35,9 @@ export function LanguageSwitcher() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {languages.map((language) => (
-          <Link
+          <DropdownMenuItem
             key={language.code}
-            href={pathname}
-            locale={language.code as 'en' | 'ar' | 'ku'}
-          >
-            <DropdownMenuItem
+            onClick={() => setLocale(language.code)}
             className={locale === language.code ? 'bg-accent' : ''}
           >
             <span>{language.nativeName}</span>
@@ -51,7 +45,6 @@ export function LanguageSwitcher() {
               {language.name}
             </span>
           </DropdownMenuItem>
-          </Link>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>

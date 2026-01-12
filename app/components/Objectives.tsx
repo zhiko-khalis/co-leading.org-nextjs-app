@@ -3,12 +3,9 @@
 import { Card } from './ui/card';
 import { GraduationCap, Network, Users2, TrendingUp, Scale } from 'lucide-react';
 import { useTranslations } from '../hooks/useTranslations';
-import { useLocale } from 'next-intl';
 
 export function Objectives() {
   const t = useTranslations('objectives');
-  const locale = useLocale();
-  const isRTL = locale === 'ar';
   
   // Helper function to get nested translation
   const getObjectivePoints = (key: string) => {
@@ -63,18 +60,16 @@ export function Objectives() {
             {objectives.map((objective, index) => {
               const Icon = objective.icon;
               const colors = ['bg-orange-500', 'bg-green-500', 'bg-blue-500', 'bg-red-500', 'bg-orange-600'];
-              const dotColors = ['bg-orange-600', 'bg-green-600', 'bg-blue-600', 'bg-red-600', 'bg-orange-700'];
               return (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow bg-white">
+                <Card key={index} className="p-6 hover:shadow-lg transition-shadow bg-white flex flex-col items-center text-center">
                   <div className={`w-12 h-12 ${colors[index]} rounded-lg flex items-center justify-center mb-4`}>
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="mb-4">{objective.title}</h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 flex flex-col items-center">
                     {objective.points.map((point, idx) => (
-                      <li key={idx} className={`flex items-start ${isRTL ? 'flex-row-reverse' : ''}`}>
-                        <span className={`inline-block w-1.5 h-1.5 ${dotColors[index]} rounded-full mt-2 flex-shrink-0 ${isRTL ? 'ml-3' : 'mr-3'}`}></span>
-                        <span className="text-gray-600">{point}</span>
+                      <li key={idx} className="text-gray-600 text-[12px]">
+                        {point}
                       </li>
                     ))}
                   </ul>

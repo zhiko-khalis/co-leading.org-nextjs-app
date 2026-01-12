@@ -1,18 +1,18 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
-import { Badge } from '../../components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Badge } from '../components/ui/badge';
 import { Calendar, ArrowRight, Target } from 'lucide-react';
-import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
-import { Button } from '../../components/ui/button';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { Button } from '../components/ui/button';
+import { Navigation } from '../components/Navigation';
+import { Footer } from '../components/Footer';
 
 export default function ProjectsPage() {
   const projects = [
     {
       id: 1,
-      title: 'Community Health Initiative',
+      title: 'Coming Soon',
       description: 'A comprehensive health program providing medical services and health education to underserved communities, reaching over 5,000 beneficiaries.',
       year: '2024',
       status: 'In Progress',
@@ -21,25 +21,25 @@ export default function ProjectsPage() {
     },
     {
       id: 2,
-      title: 'Digital Skills Training Program',
+      title: 'Coming Soon',
       description: 'Empowering youth and women with essential digital literacy skills, coding workshops, and technology entrepreneurship training.',
       year: '2024',
-      status: 'Completed',
+      status: 'In Progress',
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwc2tpbGxzJTIwdHJhaW5pbmd8ZW58MXx8fHwxNzYyNjExMDgzfDA&ixlib=rb-4.1.0&q=80&w=1080',
       learnMore: '#'
     },
     {
       id: 3,
-      title: 'Sustainable Agriculture Project',
+      title: 'Coming Soon',
       description: 'Supporting local farmers with modern farming techniques, sustainable practices, and market access to improve food security and livelihoods.',
       year: '2023',
-      status: 'Completed',
+      status: 'In Progress',
       image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMGFncmljdWx0dXJlfGVufDF8fHx8MTc2MjYxMTA4M3ww&ixlib=rb-4.1.0&q=80&w=1080',
       learnMore: '#'
     },
     {
       id: 4,
-      title: 'Youth Leadership Development Program',
+      title: 'Coming Soon',
       description: 'Training and mentoring young leaders to take active roles in their communities, focusing on civic engagement, public speaking, and project management skills.',
       year: '2024',
       status: 'In Progress',
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
     },
     {
       id: 5,
-      title: 'Women Entrepreneurship Support Network',
+      title: 'Coming Soon',
       description: 'Creating a supportive ecosystem for women entrepreneurs through mentorship, access to capital, business development workshops, and networking opportunities.',
       year: '2023',
       status: 'Completed',
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
     },
     {
       id: 6,
-      title: 'Clean Water Access Initiative',
+      title: 'Coming Soon',
       description: 'Installing water wells and purification systems in rural communities, providing clean and safe drinking water to over 10,000 people across multiple villages.',
       year: '2023',
       status: 'Completed',
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
     },
     {
       id: 7,
-      title: 'Education Technology Hub',
+      title: 'Coming Soon',
       description: 'Establishing technology-enabled learning centers that provide access to digital educational resources, online courses, and computer literacy training for students and teachers.',
       year: '2024',
       status: 'In Progress',
@@ -75,7 +75,7 @@ export default function ProjectsPage() {
     },
     {
       id: 8,
-      title: 'Community Garden and Food Security Program',
+      title: 'Coming Soon',
       description: 'Establishing community gardens in urban areas to promote food security, nutrition education, and sustainable urban agriculture practices.',
       year: '2024',
       status: 'In Progress',
@@ -84,7 +84,7 @@ export default function ProjectsPage() {
     },
     {
       id: 9,
-      title: 'Climate Resilience Training Program',
+      title: 'Coming Soon',
       description: 'Educating communities about climate change impacts and training them in adaptation strategies, disaster preparedness, and sustainable resource management.',
       year: '2023',
       status: 'Completed',
@@ -105,11 +105,10 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <Header />
+      <Navigation />
       <section id="projects" className="pt-24 py-20 bg-white min-h-screen">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Page Header */}
             <div className="text-center mb-16">
               <h1 className="mb-4 text-red-600 font-bold text-3xl">Our Projects</h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -117,7 +116,6 @@ export default function ProjectsPage() {
               </p>
             </div>
 
-            {/* Projects Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
                 <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
@@ -168,3 +166,4 @@ export default function ProjectsPage() {
     </>
   );
 }
+

@@ -2,16 +2,16 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Card, CardContent } from '../../../components/ui/card';
-import { Badge } from '../../../components/ui/badge';
+import { Card, CardContent } from '../../components/ui/card';
+import { Badge } from '../../components/ui/badge';
 import { Calendar, ArrowLeft } from 'lucide-react';
-import { ImageWithFallback } from '../../../components/figma/ImageWithFallback';
-import { Button } from '../../../components/ui/button';
-import { Header } from '../../../components/Header';
-import { Footer } from '../../../components/Footer';
+import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
+import { Button } from '../../components/ui/button';
+import { Navigation } from '../../components/Navigation';
+import { Footer } from '../../components/Footer';
 import Link from 'next/link';
-import { useTranslations } from '../../../hooks/useTranslations';
-import { useLocale } from 'next-intl';
+import { useTranslations } from '../../hooks/useTranslations';
+import { useLanguage } from '../../contexts/LanguageContext';
 import {
   Carousel,
   CarouselContent,
@@ -19,22 +19,20 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from '../../../components/ui/carousel';
+} from '../../components/ui/carousel';
 
 export default function NewsDetailsPage() {
   const params = useParams();
   const router = useRouter();
-  const locale = useLocale();
+  const { locale, isRTL } = useLanguage();
   const t = useTranslations('latestNews');
   const tCommon = useTranslations('common');
-  const isRTL = locale === 'ar';
   
   const newsId = params?.id ? parseInt(params.id as string) : null;
 
   const handleBackClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router.push(`/${locale}`);
-    // Wait for navigation, then scroll to section
+    router.push('/');
     setTimeout(() => {
       const element = document.getElementById('news');
       if (element) {
@@ -49,7 +47,6 @@ export default function NewsDetailsPage() {
     }, 100);
   };
 
-  // News data - in a real app, this would come from an API or database
   const newsItems = [
     {
       id: 1,
@@ -69,7 +66,7 @@ export default function NewsDetailsPage() {
       id: 2,
       title: t('newsItems.item2.title'),
       description: t('newsItems.item2.description'),
-      fullContent: t('newsItems.item2.fullContent') || 'We are excited to announce the launch of our comprehensive leadership development program designed specifically for women entrepreneurs looking to scale their businesses. This program offers mentorship, networking opportunities, and practical skills training to help participants achieve their business goals. The program includes workshops on business strategy, financial management, marketing, and leadership skills. Participants will have access to one-on-one mentorship sessions with experienced entrepreneurs and industry experts. Additionally, the program provides networking events where participants can connect with potential partners, investors, and collaborators. We believe this initiative will empower women entrepreneurs to overcome challenges and build successful, sustainable businesses that contribute to economic growth and community development.',
+      fullContent: t('newsItems.item2.fullContent') || 'We are excited to announce the launch of our comprehensive leadership development program designed specifically for women entrepreneurs looking to scale their businesses.',
       date: '2024-01-15',
       category: t('newsItems.item2.category'),
       images: [
@@ -84,7 +81,7 @@ export default function NewsDetailsPage() {
       id: 3,
       title: t('newsItems.item3.title'),
       description: t('newsItems.item3.description'),
-      fullContent: t('newsItems.item3.fullContent') || 'Congratulations to all participants in our annual Youth Innovation Challenge. This year\'s winners showcased exceptional creativity in addressing community challenges. The competition received over 200 submissions from young innovators across the region. The winning projects focused on sustainable solutions for environmental issues, innovative approaches to education, and technology-driven solutions for social problems. The top three winners received cash prizes, mentorship opportunities, and access to our innovation lab facilities. We are proud of all participants who demonstrated passion, creativity, and commitment to making a positive impact in their communities. The challenge not only recognizes outstanding innovation but also provides a platform for young people to develop their ideas and connect with like-minded peers and mentors.',
+      fullContent: t('newsItems.item3.fullContent') || 'Congratulations to all participants in our annual Youth Innovation Challenge.',
       date: '2024-01-10',
       category: t('newsItems.item3.category'),
       images: [
@@ -97,7 +94,7 @@ export default function NewsDetailsPage() {
       id: 4,
       title: t('newsItems.item4.title'),
       description: t('newsItems.item4.description'),
-      fullContent: t('newsItems.item4.fullContent') || 'We are proud to announce new partnerships that will expand our reach and enhance our ability to serve more communities across the region. These collaborations will bring together resources and expertise to create greater positive change. Our new partners include local businesses, international organizations, educational institutions, and government agencies. These partnerships will enable us to scale our programs, reach more beneficiaries, and leverage diverse expertise and resources. Together, we will work on joint initiatives focusing on leadership development, entrepreneurship support, environmental sustainability, and community empowerment. We believe that collaboration is key to creating lasting impact, and we are excited about the opportunities these partnerships will bring to our communities.',
+      fullContent: t('newsItems.item4.fullContent') || 'We are proud to announce new partnerships that will expand our reach.',
       date: '2024-01-05',
       category: t('newsItems.item4.category'),
       images: [
@@ -112,7 +109,6 @@ export default function NewsDetailsPage() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  // Auto-play carousel
   useEffect(() => {
     if (!api || !newsItem?.images || newsItem.images.length <= 1) {
       return;
@@ -122,14 +118,13 @@ export default function NewsDetailsPage() {
       if (api.canScrollNext()) {
         api.scrollNext();
       } else {
-        api.scrollTo(0); // Loop back to the first slide
+        api.scrollTo(0);
       }
-    }, 4000); // Change slide every 4 seconds
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [api, newsItem?.images]);
 
-  // Track current slide
   useEffect(() => {
     if (!api) {
       return;
@@ -139,7 +134,6 @@ export default function NewsDetailsPage() {
       setCurrent(api.selectedScrollSnap());
     };
 
-    // Set initial current slide (deferred to avoid synchronous setState)
     const timeoutId = setTimeout(() => {
       updateCurrent();
     }, 0);
@@ -176,13 +170,12 @@ export default function NewsDetailsPage() {
   if (!newsItem) {
     return (
       <>
-        {/* <Header /> */}
-        <section className=" bg-gray-50 min-h-screen">
+        <section className="bg-gray-50 min-h-screen">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-3xl font-bold text-gray-800 mb-4">News Not Found</h1>
               <p className="text-gray-600 mb-8">The news article you&apos;re looking for doesn&apos;t exist.</p>
-              <Link href={`/${locale}#news`} onClick={handleBackClick}>
+              <Link href="/#news" onClick={handleBackClick}>
                 <Button variant="outline">
                   <ArrowLeft className={`w-4 h-4 ${isRTL ? 'ml-2 rotate-180' : 'mr-2'}`} />
                   {tCommon('back') || 'Back to News'}
@@ -191,20 +184,17 @@ export default function NewsDetailsPage() {
             </div>
           </div>
         </section>
-        {/* <Footer /> */}
       </>
     );
   }
 
   return (
     <>
-      {/* <Header /> */}
       <section className="pt-4 bg-gray-50 min-h-screen">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Back Button */}
-            <div className={`mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
-              <Link href={`/${locale}#news`} onClick={handleBackClick}>
+            <div className="mb-4 text-center">
+              <Link href="/#news" onClick={handleBackClick}>
                 <Button variant="ghost" className={`text-gray-600 hover:text-orange-600 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <ArrowLeft className={`w-4 h-4 ${isRTL ? 'ml-2 rotate-180' : 'mr-2'}`} />
                   {tCommon('back') || 'Back to News'}
@@ -212,7 +202,6 @@ export default function NewsDetailsPage() {
               </Link>
             </div>
 
-            {/* News Article */}
             <Card className="overflow-hidden">
               <div className="relative h-[600px] overflow-hidden">
                 {newsItem.images && newsItem.images.length > 1 ? (
@@ -239,7 +228,6 @@ export default function NewsDetailsPage() {
                     </CarouselContent>
                     <CarouselPrevious className={`${isRTL ? 'right-4 left-auto' : 'left-4 right-auto'} bg-white/80 hover:bg-white`} />
                     <CarouselNext className={`${isRTL ? 'left-4 right-auto' : 'right-4 left-auto'} bg-white/80 hover:bg-white`} />
-                    {/* Slide indicators */}
                     <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                       {newsItem.images.map((_, index) => (
                         <button
@@ -269,17 +257,17 @@ export default function NewsDetailsPage() {
                 )}
               </div>
               
-              <CardContent className="p-8">
-                <div className={`flex items-center text-sm text-gray-500 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <CardContent className="p-8 mb-10">
+                <div className="flex items-center justify-center text-sm text-gray-500 mb-4">
                   <Calendar className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
                   <span suppressHydrationWarning>{formatDate(newsItem.date)}</span>
                 </div>
                 
-                <h1 className={`text-3xl font-bold text-gray-800 mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>
+                <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
                   {newsItem.title}
                 </h1>
                 
-                <div className={`prose prose-lg max-w-none ${isRTL ? 'text-right' : 'text-left'}`}>
+                <div className="prose prose-lg max-w-none text-center">
                   <p className="text-gray-700 leading-relaxed mb-4">
                     {newsItem.description}
                   </p>
@@ -292,7 +280,6 @@ export default function NewsDetailsPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

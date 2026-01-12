@@ -1,11 +1,11 @@
 'use client';
 
-import { Card } from '../../components/ui/card';
-import { Badge } from '../../components/ui/badge';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { Card } from '../components/ui/card';
+import { Badge } from '../components/ui/badge';
+import { Navigation } from '../components/Navigation';
+import { Footer } from '../components/Footer';
 import { Briefcase, Lightbulb, Users, BookOpen } from 'lucide-react';
-import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
+import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 export default function Programs() {
   const programs = [
@@ -25,7 +25,7 @@ export default function Programs() {
       title: 'Innovation Labs',
       description: 'Creative spaces where participants develop technology-driven solutions and tackle local and regional challenges through innovation.',
       icon: Lightbulb,
-      tags: [ 'Solutions', 'Research']
+      tags: ['Solutions', 'Research']
     },
     {
       title: 'Mentorship Programs',
@@ -37,7 +37,7 @@ export default function Programs() {
 
   return (
     <>
-      <Header />
+      <Navigation />
       <section id="programs" className="pt-24 py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
@@ -98,3 +98,4 @@ export default function Programs() {
     </>
   );
 }
+

@@ -51,8 +51,8 @@ export function About() {
           </div> */}
 
           <div className="bg-white rounded-xl p-8 md:p-12 shadow-sm">
-            <h3 className="mb-6">{t('ourApproach')}</h3>
-            <p className="text-gray-600">
+            <h3 className="mb-6 text-center">{t('ourApproach')}</h3>
+            <p className="text-gray-600 text-center">
               {t('approachDescription1')}
             </p>
           </div>

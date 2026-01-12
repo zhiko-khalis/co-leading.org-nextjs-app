@@ -1,10 +1,13 @@
-import createMiddleware from 'next-intl/middleware';
-import { routing } from './i18n/routing';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export default createMiddleware(routing);
+export function middleware(request: NextRequest) {
+  // No locale routing - just pass through
+  return NextResponse.next();
+}
 
 export const config = {
-  // Match only internationalized pathnames
+  // Match all routes except static files and API routes
   matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 };
 

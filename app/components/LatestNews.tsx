@@ -8,13 +8,12 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTranslations } from '../hooks/useTranslations';
-import { useLocale } from 'next-intl';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function LatestNews() {
   const t = useTranslations('latestNews');
   const tCommon = useTranslations('common');
-  const locale = useLocale();
-  const isRTL = locale === 'ar';
+  const { locale, isRTL } = useLanguage();
   
   const newsItems = [
     {
@@ -155,7 +154,7 @@ export function LatestNews() {
                   <p className="text-gray-600 mb-4 line-clamp-3 flex-1 text-center">
                     {item.description}
                   </p>
-                  <Link href={`/${locale}/news/${item.id}`} className="w-full">
+                  <Link href={`/news/${item.id}`} className="w-full">
                     <Button 
                       variant="ghost" 
                       className={`w-full justify-center items-center group bg-gray-100 hover:bg-gray-200 ${isRTL ? 'flex-row-reverse' : ''}`}

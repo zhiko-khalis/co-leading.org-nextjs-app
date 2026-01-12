@@ -2,22 +2,19 @@
 
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
-import { Briefcase, Lightbulb, Users, BookOpen } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'framer-motion';
 import { useTranslations } from '../hooks/useTranslations';
-import { useLocale } from 'next-intl';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Programs() {
   const t = useTranslations('programs');
-  const locale = useLocale();
-  const isRTL = locale === 'ar';
+  const { isRTL } = useLanguage();
   
   const programs = [
     {
       title: t('programs.leadershipWorkshops.title'),
       description: t('programs.leadershipWorkshops.description'),
-      icon: BookOpen,
       tags: [
         t('programs.leadershipWorkshops.tags.0'),
         t('programs.leadershipWorkshops.tags.1'),
@@ -27,7 +24,6 @@ export function Programs() {
     {
       title: t('programs.entrepreneurshipTraining.title'),
       description: t('programs.entrepreneurshipTraining.description'),
-      icon: Briefcase,
       tags: [
         t('programs.entrepreneurshipTraining.tags.0'),
         t('programs.entrepreneurshipTraining.tags.1'),
@@ -37,7 +33,6 @@ export function Programs() {
     {
       title: t('programs.innovationLabs.title'),
       description: t('programs.innovationLabs.description'),
-      icon: Lightbulb,
       tags: [
         t('programs.innovationLabs.tags.0'),
         t('programs.innovationLabs.tags.1')
@@ -46,7 +41,6 @@ export function Programs() {
     {
       title: t('programs.mentorshipPrograms.title'),
       description: t('programs.mentorshipPrograms.description'),
-      icon: Users,
       tags: [
         t('programs.mentorshipPrograms.tags.0'),
         t('programs.mentorshipPrograms.tags.1'),
@@ -129,12 +123,12 @@ export function Programs() {
           >
             <div className="relative rounded-2xl overflow-hidden h-96 mb-8">
               <ImageWithFallback
-                src="/lead-photo.jpg"
+                src="/lead-photoo.jpg"
                 alt="Youth empowerment workshop"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white text-center">
                 <h3 className="mb-2">{t('empoweringNextGeneration')}</h3>
                 <p className="text-gray-200">
                   {t('empoweringNextGenerationDescription')}
@@ -151,27 +145,17 @@ export function Programs() {
             variants={containerVariants}
           >
             {programs.map((program, index) => {
-              const Icon = program.icon;
-              const bgColors = ['bg-orange-100', 'bg-green-100', 'bg-blue-100', 'bg-red-100'];
-              const iconColors = ['text-orange-600', 'text-green-600', 'text-blue-600', 'text-red-600'];
               return (
                 <motion.div key={index} variants={cardVariants}>
-                  <Card className="p-6 hover:shadow-lg transition-shadow">
-                  <div className={`flex items-start mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                    <div className={`w-12 h-12 ${bgColors[index]} rounded-lg flex items-center justify-center shrink-0 ${isRTL ? 'ml-4' : 'mr-4'}`}>
-                      <Icon className={`w-6 h-6 ${iconColors[index]}`} />
+                  <Card className="p-6 hover:shadow-lg transition-shadow text-center">
+                    <h3 className="">{program.title}</h3>
+                    <div className={`flex flex-wrap gap-2  justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>
+                      {program.tags.map((tag, idx) => (
+                        <Badge key={idx} variant="secondary">{tag}</Badge>
+                      ))}
                     </div>
-                    <div className="flex-1">
-                      <h3 className="mb-2">{program.title}</h3>
-                      <div className={`flex flex-wrap gap-2 mb-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                        {program.tags.map((tag, idx) => (
-                          <Badge key={idx} variant="secondary">{tag}</Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-gray-600">{program.description}</p>
-                </Card>
+                    <p className="text-gray-600">{program.description}</p>
+                  </Card>
                 </motion.div>
               );
             })}

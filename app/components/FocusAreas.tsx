@@ -11,12 +11,13 @@ export function FocusAreas() {
   
   const areas = [
     {
-      title: t('environmentalLeadership'),
-      icon: Leaf,
-      description: t('environmentalLeadershipDescription'),
-      color: 'green',
-      image: 'https://images.unsplash.com/photo-1528122819723-9dca3a31295d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnZpcm9ubWVudGFsJTIwc3VzdGFpbmFiaWxpdHl8ZW58MXx8fHwxNzYyNTEyNTc5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
-    },
+      title: t('technologyLeadership'),
+      icon: Laptop,
+      description: t('technologyLeadershipDescription'),
+      color: 'purple',
+      image: 'https://images.unsplash.com/photo-1568952433726-3896e3881c65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwaW5ub3ZhdGlvbnxlbnwxfHx8fDE3NjI1NDM1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
+    }
+    ,
     {
       title: t('economicLeadership'),
       icon: Heart,
@@ -32,12 +33,13 @@ export function FocusAreas() {
       image: 'https://images.unsplash.com/photo-1759171907618-95130c76ae5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBqdXN0aWNlJTIwZXF1YWxpdHl8ZW58MXx8fHwxNzYyNjExMDg0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
     },
     {
-      title: t('technologyLeadership'),
-      icon: Laptop,
-      description: t('technologyLeadershipDescription'),
-      color: 'purple',
-      image: 'https://images.unsplash.com/photo-1568952433726-3896e3881c65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwaW5ub3ZhdGlvbnxlbnwxfHx8fDE3NjI1NDM1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
-    }
+      title: t('environmentalLeadership'),
+      icon: Leaf,
+      description: t('environmentalLeadershipDescription'),
+      color: 'green',
+      image: 'https://images.unsplash.com/photo-1528122819723-9dca3a31295d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnZpcm9ubWVudGFsJTIwc3VzdGFpbmFiaWxpdHl8ZW58MXx8fHwxNzYyNTEyNTc5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
+    },
+   
   ];
 
   const colorClasses = {
@@ -130,7 +132,7 @@ export function FocusAreas() {
                       </div>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 text-center">
                     <h3 className="mb-3">{area.title}</h3>
                     <p className="text-gray-600">{area.description}</p>
                   </div>

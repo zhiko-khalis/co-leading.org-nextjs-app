@@ -8,40 +8,40 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTranslations } from '../hooks/useTranslations';
-import { useLocale } from 'next-intl';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function LatestProjects() {
   const t = useTranslations('latestProjects');
   const tCommon = useTranslations('common');
-  const locale = useLocale();
-  const isRTL = locale === 'ar';
+  const { isRTL } = useLanguage();
   
   const projects = [
     {
       id: 1,
-      title: t('projects.project1.title'),
-      description: t('projects.project1.description'),
+      // title: t('projects.project1.title'),
+      title: 'Coming Soon',
+      // description: t('projects.project1.description'),
       year: '2024',
       status: t('status.inProgress'),
-      image: '/lead-photo.jpg',
+      image: '/lead-photoo.jpg',
       learnMore: '#'
     },
     {
       id: 2,
-      title: t('projects.project2.title'),
-      description: t('projects.project2.description'),
+      title: 'Coming Soon',
+      // description: t('projects.project2.description'),
       year: '2024',
-      status: t('status.completed'),
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwc2tpbGxzJTIwdHJhaW5pbmd8ZW58MXx8fHwxNzYyNjExMDgzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+      status: t('status.inProgress'),
+      image: '/lead-photoo.jpg',
       learnMore: '#'
     },
     {
       id: 3,
-      title: t('projects.project3.title'),
-      description: t('projects.project3.description'),
+      title: 'Coming Soon',
+      // description: t('projects.project3.description'),
       year: '2023',
-      status: t('status.completed'),
-      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXN0YWluYWJsZSUyMGFncmljdWx0dXJlfGVufDF8fHx8MTc2MjYxMTA4M3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      status: t('status.inProgress'),
+      image: '/lead-photoo.jpg',
       learnMore: '#'
     }
   ];
@@ -168,7 +168,7 @@ export function LatestProjects() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           >
-            <Link href="/projects" locale={locale}>
+            {/* <Link href="/projects"> */}
               <Button 
                 variant="outline" 
                 size="lg"
@@ -177,7 +177,7 @@ export function LatestProjects() {
                 {t('viewAllProjects')}
                 <ArrowRight className={`h-5 w-5 ${isRTL ? 'mr-2 rotate-180' : 'ml-2'}`} />
               </Button>
-            </Link>
+            {/* </Link> */}
           </motion.div>
         </div>
       </div>

@@ -1,15 +1,15 @@
 'use client';
 
-import { Button } from '../../components/ui/button';
-import { Card } from '../../components/ui/card';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { Button } from '../components/ui/button';
+import { Card } from '../components/ui/card';
+import { Navigation } from '../components/Navigation';
+import { Footer } from '../components/Footer';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function CallToAction() {
   return (
     <>
-      <Header />
+      <Navigation />
       <section id="contact" className="pt-24 py-20 bg-gradient-to-br from-indigo-900 to-orange-700 text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
@@ -68,3 +68,4 @@ export default function CallToAction() {
     </>
   );
 }
+

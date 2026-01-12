@@ -4,20 +4,19 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations } from '../hooks/useTranslations';
-import { useLocale } from 'next-intl';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
-export function Header() {
+export function Navigation() {
   const t = useTranslations('common');
-  const locale = useLocale();
+  const { isRTL } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [mounted, setMounted] = useState(false);
-  const isHomePage = pathname === '/' || pathname === `/${locale}` || pathname === `/${locale}/`;
-  const isRTL = locale === 'ar';
+  const isHomePage = pathname === '/';
   
   // On non-home pages, always show white background with black text
   // On home page, show based on scroll position
@@ -66,8 +65,7 @@ export function Header() {
     } else if (sectionId) {
       // If not on home page, prevent default, navigate to home first, then scroll
       e.preventDefault();
-      const homePath = `/${locale}`;
-      router.push(homePath);
+      router.push('/');
       // Wait for DOM to update, then scroll
       setTimeout(() => {
         scrollToSection(sectionId);
@@ -132,27 +130,27 @@ export function Header() {
           <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
             {/* Desktop Navigation */}
             <nav className={`hidden md:flex items-center ${isRTL ? 'flex-row-reverse space-x-reverse space-x-8' : 'space-x-8'}`}>
-            <Link href={`/${locale}`} onClick={(e) => handleNavClick(e, '/')} className={`transition-colors cursor-pointer ${
+            <Link href="/" onClick={(e) => handleNavClick(e, '/')} className={`transition-colors cursor-pointer ${
                 isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
               }`}>
                 {t('home')}
               </Link>
-              <Link href={`/${locale}/about`} onClick={(e) => handleNavClick(e, '/about')} className={`transition-colors cursor-pointer ${
+              <Link href="/about" onClick={(e) => handleNavClick(e, '/about')} className={`transition-colors cursor-pointer ${
                 isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
               }`}>
                 {t('about')}
               </Link>
-              <Link href={`/${locale}/news`} onClick={(e) => handleNavClick(e, '/news')} className={`transition-colors cursor-pointer ${
+              <Link href="/news" onClick={(e) => handleNavClick(e, '/news')} className={`transition-colors cursor-pointer ${
                 isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
               }`}>
                 {t('news')}
               </Link>
-              <Link href={`/${locale}/focusareas`} onClick={(e) => handleNavClick(e, '/focusareas')} className={`transition-colors cursor-pointer ${
+              <Link href="/#focus-areas" onClick={(e) => handleNavClick(e, '/focusareas')} className={`transition-colors cursor-pointer ${
                 isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
               }`}>
                 {t('focusAreas')}
               </Link>
-              <Link href={`/${locale}/projects`} onClick={(e) => handleNavClick(e, '/projects')} className={`transition-colors cursor-pointer ${
+              <Link href="/projects" onClick={(e) => handleNavClick(e, '/projects')} className={`transition-colors cursor-pointer ${
                 isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
               }`}>
                 {t('projects')}
@@ -160,13 +158,13 @@ export function Header() {
 
               
               
-              <Link href={`/${locale}/programs`} onClick={(e) => handleNavClick(e, '/programs')} className={`transition-colors cursor-pointer ${
+              <Link href="/programs" onClick={(e) => handleNavClick(e, '/programs')} className={`transition-colors cursor-pointer ${
                 isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
               }`}>
                 {t('programs')}
               </Link>
 
-              <Link href={`/${locale}/objectives`} onClick={(e) => handleNavClick(e, '/objectives')} className={`transition-colors cursor-pointer ${
+              <Link href="/objectives" onClick={(e) => handleNavClick(e, '/objectives')} className={`transition-colors cursor-pointer ${
                 isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
               }`}>
                 {t('objectives')}
@@ -174,10 +172,10 @@ export function Header() {
 
              
              
-              <Link href={`/${locale}/calltoaction`} onClick={(e) => handleNavClick(e, '/calltoaction')} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors cursor-pointer">
+              <Link href="/calltoaction" onClick={(e) => handleNavClick(e, '/calltoaction')} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors cursor-pointer">
                 {t('getInvolved')}
               </Link>
-              {/* <LanguageSwitcher /> */}
+              <LanguageSwitcher />
             </nav>
 
             {/* Mobile Menu Button - appears on left in RTL, right in LTR */}
@@ -195,52 +193,52 @@ export function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <nav className={`md:hidden mt-4 pb-4 flex justify-center items-center flex-col ${isRTL ? 'space-y-reverse space-y-3' : 'space-y-3'}`}>
-            <Link href={`/${locale}`} onClick={(e) => handleNavClick(e, '/')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
+            <Link href="/" onClick={(e) => handleNavClick(e, '/')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
               isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
             }`}>
               {t('home')}
             </Link>
-            <Link href={`/${locale}/about`} onClick={(e) => handleNavClick(e, '/about')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
+            <Link href="/about" onClick={(e) => handleNavClick(e, '/about')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
               isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
             }`}>
               {t('about')}
             </Link>
-            <Link href={`/${locale}/news`} onClick={(e) => handleNavClick(e, '/news')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
+            <Link href="/news" onClick={(e) => handleNavClick(e, '/news')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
               isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
             }`}>
               {t('news')}
             </Link>
-            <Link href={`/${locale}/focusareas`} onClick={(e) => handleNavClick(e, '/focusareas')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
+            <Link href="/#focus-areas" onClick={(e) => handleNavClick(e, '/focusareas')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
               isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
             }`}>
               {t('focusAreas')}
             </Link>
-            <Link href={`/${locale}/projects`} onClick={(e) => handleNavClick(e, '/projects')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
+            <Link href="/projects" onClick={(e) => handleNavClick(e, '/projects')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
               isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
             }`}>
               {t('projects')}
             </Link>
 
-            <Link href={`/${locale}/programs`} onClick={(e) => handleNavClick(e, '/programs')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
+            <Link href="/programs" onClick={(e) => handleNavClick(e, '/programs')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
               isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
             }`}>
               {t('programs')}
             </Link>
 
 
-            <Link href={`/${locale}/objectives`} onClick={(e) => handleNavClick(e, '/objectives')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
+            <Link href="/objectives" onClick={(e) => handleNavClick(e, '/objectives')} className={`transition-colors cursor-pointer ${isRTL ? 'text-right' : 'text-left'} ${
               isScrolled ? 'text-black hover:text-orange-600' : 'text-white hover:text-orange-600'
             }`}>
               {t('objectives')}
             </Link>
            
           
-            <Link href={`/${locale}/calltoaction`} onClick={(e) => handleNavClick(e, '/calltoaction')} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors text-center cursor-pointer">
+            <Link href="/calltoaction" onClick={(e) => handleNavClick(e, '/calltoaction')} className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors text-center cursor-pointer">
               {t('getInvolved')}
             </Link>
-            {/* <div className="mt-2">
+            <div className="mt-2">
               <LanguageSwitcher />
-            </div> */}
+            </div>
           </nav>
         )}
       </div>

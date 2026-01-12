@@ -5,13 +5,12 @@ import { Card } from './ui/card';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslations } from '../hooks/useTranslations';
-import { useLocale } from 'next-intl';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function CallToAction() {
   const t = useTranslations('callToAction');
   const tCommon = useTranslations('common');
-  const locale = useLocale();
-  const isRTL = locale === 'ar';
+  const { isRTL } = useLanguage();
   const headerVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {

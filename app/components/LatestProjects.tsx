@@ -20,7 +20,7 @@ export function LatestProjects() {
       id: 1,
       // title: t('projects.project1.title'),
       title: 'Coming Soon',
-      // description: t('projects.project1.description'),
+      description: '', // t('projects.project1.description'),
       year: '2024',
       status: t('status.inProgress'),
       image: '/lead-photoo.jpg',
@@ -29,7 +29,7 @@ export function LatestProjects() {
     {
       id: 2,
       title: 'Coming Soon',
-      // description: t('projects.project2.description'),
+      description: '', // t('projects.project2.description'),
       year: '2024',
       status: t('status.inProgress'),
       image: '/lead-photoo.jpg',
@@ -38,7 +38,7 @@ export function LatestProjects() {
     {
       id: 3,
       title: 'Coming Soon',
-      // description: t('projects.project3.description'),
+      description: '', // t('projects.project3.description'),
       year: '2023',
       status: t('status.inProgress'),
       image: '/lead-photoo.jpg',

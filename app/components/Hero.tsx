@@ -17,7 +17,7 @@ export function Hero({ videoSrc, imageSrc, imageAlt = 'Hero background' }: HeroP
   const router = useRouter();
   const t = useTranslations('hero');
   const tCommon = useTranslations('common');
-  const { isRTL } = useLanguage();
+  const { locale, isRTL } = useLanguage();
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">

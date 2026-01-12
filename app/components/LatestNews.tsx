@@ -19,7 +19,7 @@ export function LatestNews() {
     {
       id: 1,
       title: t('newsItems.item1.title'),
-      description: t('newsItems.item1.description'),
+      description: '', // t('newsItems.item1.description'),
       date: '2025-12-25',
       category: t('newsItems.item1.category'),
       image: '/n1/n1.jpg',
@@ -27,7 +27,7 @@ export function LatestNews() {
     {
       id: 2,
       title: t('newsItems.item2.title'),
-      description: t('newsItems.item2.description'),
+      description: '', // t('newsItems.item2.description'),
       date: '2024-01-15',
       category: t('newsItems.item2.category'),
       image: '/nn1/nn3.jpg',
@@ -35,7 +35,7 @@ export function LatestNews() {
     {
       id: 3,
       title: t('newsItems.item3.title'),
-      description: t('newsItems.item3.description'),
+      description: '', // t('newsItems.item3.description'),
       date: '2024-01-10',
       category: t('newsItems.item3.category'),
       image: '/nnn1/nnn1.jpg',

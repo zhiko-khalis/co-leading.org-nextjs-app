@@ -65,14 +65,14 @@ export function Hero({ videoSrc, imageSrc, imageAlt = 'Hero background' }: HeroP
           </p>
           
           <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>
-            <Button 
+            {/* <Button 
               size="lg" 
               className="bg-white text-blue-600 hover:bg-gray-100"
               onClick={() => router.push(`/${locale}/about`)}
             >
               {tCommon('learnMore')}
               <ArrowRight className={`h-5 w-5 ${isRTL ? 'mr-2 rotate-180' : 'ml-2'}`} />
-            </Button>
+            </Button> */}
             {/* <Button 
               size="lg" 
               variant="outline"
